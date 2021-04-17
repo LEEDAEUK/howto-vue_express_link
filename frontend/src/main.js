@@ -3,8 +3,10 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify';
+import API from './api/api'
 
 Vue.config.productionTip = false
+Vue.prototype.$http = API
 
 new Vue({
   router,
