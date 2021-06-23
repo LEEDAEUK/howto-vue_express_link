@@ -1,4 +1,3 @@
-# vue cli 3.x 설치부터 express와의 연동까지
 
 # Frontend 설정
 
@@ -90,7 +89,7 @@ frontend → api → api.js
 import axios from 'axios'
 
 export default axios.create({
-  baseURL: `baseURL: 'http://localhost:3000/`
+  baseURL: `http://localhost:3000/`
 });
 ```
 
@@ -100,6 +99,16 @@ frontend → src → main.js
 import API from './api/api'
 
 Vue.prototype.$http = API
+```
+
+html에서 오른쪽 스크롤바를 없애는 법
+
+index.html
+
+```jsx
+<style>
+overflow-y: auto !important
+</style>
 ```
 
 Home.vue 에서 사용법
@@ -126,7 +135,7 @@ Home.vue 에서 사용법
 <script>
 export default {
   created() {
-    this.$emit("Title", "ログイン");
+    this.$emit("Title", "ホーム");
   },
   data() {
     return {
@@ -156,7 +165,7 @@ frontend → router → index.js
 ```jsx
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../conponents/Home.vue'
+import Home from '../components/Home.vue'
 
 Vue.use(VueRouter)
 
@@ -252,4 +261,13 @@ app.use('/api/home/', homeRouter);
     app.use('/api/login', loginRouter);
 
     ...
+    ```
+
+    tedious는 이 버전 사용하자
+
+    `npm i tedious@9.2.1`
+
+    ```jsx
+
+    "tedious": "^9.2.1"
     ```
